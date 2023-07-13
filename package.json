@@ -1,0 +1,30 @@
+{
+  "name": "norush-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "esno scripts/index.ts",
+    "start": "esno packages/cli/src/index.ts",
+    "build": "rimraf file.txt && pnpm esno scripts/build.config.ts run build",
+    "build-bundle": "rollup --config rollup.config.ts --configPlugin typescript"
+  },
+  "keywords": [
+    "vite",
+    "rollup",
+    "cli"
+  ],
+  "author": "Ailcehhhmm",
+  "license": "ISC",
+  "dependencies": {
+    "postcss": "^8.4.24",
+    "rollup": "^3.25.3"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/fs-extra": "^11.0.1",
+    "esno": "^0.16.3",
+    "fs-extra": "^11.1.1"
+  }
+}
