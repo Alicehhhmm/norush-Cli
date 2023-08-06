@@ -1,2 +1,4 @@
-const App = require("./App");
-console.log("hello webpack", App.useCss);
+import "./index.css";
+import "./index.less";
+import "./index.sass";
+console.log("hello webpack");
