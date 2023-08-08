@@ -26,6 +26,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/, //排除内容不解析
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
         test: /\.css$/,
         // use: ["style-loader", "css-loader", "postcss-loader"],
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
@@ -49,6 +56,42 @@ module.exports = {
           "postcss-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /.(png|jpg|jepg|git|svg)$/,
+        type: "asset", //如果图片大于限制则使用 asset/resource 处理，如果图片小于限制 asset/inline 处理
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: "static/images/[name][ext]",
+        },
+      },
+      {
+        test: /.(woff2|eot|ttf|otf)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: "static/fonts/[name][ext]",
+        },
+      },
+      {
+        test: /.(mp4|mp3|webm)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: "static/medias/[name][ext]",
+        },
       },
     ],
   },

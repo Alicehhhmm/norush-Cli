@@ -12,3 +12,10 @@
   align-items: center;
   font-size: 30px;
 }
+
+.demo-img1,
+.demo-img2 {
+  width: 100vw;
+  height: 100px;
+  background-color: gray;
+}
