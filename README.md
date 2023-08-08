@@ -1,5 +1,4 @@
 # norush-Cli
-<<<<<<< HEAD
 
 这是个定制化配置的脚手架 CLI 工具库。
 
@@ -25,6 +24,3 @@ npm install norush-cli
 ```bash
 npm run norush
 ```
-=======
-构建一个方便快捷的自定义模板脚手架
->>>>>>> 0b2eb6611b7baff89cff148bb38214082617f640
