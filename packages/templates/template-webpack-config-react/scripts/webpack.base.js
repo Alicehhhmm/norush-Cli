@@ -7,14 +7,29 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
-  mode: "development",
-  entry: path.resolve(__dirname, "../src/main.js"),
+module.exports = isDev => ({
+  mode: isDev ? "development" : "production",
+  entry: path.resolve(__dirname, "../src/main.jsx"),
   output: {
     filename: "[name].[hash:8].js",
     path: path.resolve(__dirname, "../dist"),
     clean: true, //w4 - clean-webpack-plugin
-    publicPath: "./", // 输出解析文件的目录，url 相对于 HTML 页面
+    publicPath: "/", // 输出解析文件的目录，url 相对于 HTML 页面
+  },
+
+  /**
+   * @description 入口文件限制
+   * @param assetFilter |只给出 js 文件的性能提示
+   * @official https://webpack.docschina.org/configuration/performance/#performance
+   */
+  performance: {
+    hints: "warning",
+    maxEntrypointSize: 40000000,
+    maxAssetSize: 20000000,
+
+    assetFilter: function (assetFilename) {
+      return assetFilename.endsWith(".js");
+    },
   },
 
   /**
@@ -26,7 +41,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/, //排除内容不解析
         use: {
           loader: "babel-loader",
@@ -97,6 +112,18 @@ module.exports = {
   },
 
   /**
+   * @description resolve|解析配置
+   * @param {String} extensions |文件后缀扩展
+   * @param {object} alias |别名配置
+   */
+  resolve: {
+    extensions: [".jsx", ".js", ".tsx", ".ts"],
+    alias: {
+      "@": path.join(__dirname, "../src"),
+    },
+  },
+
+  /**
    * @description plugin|辅助插件配置
    * @param HtmlWebpackPlugin|根据指定的模板生成HTML文件(含打包后注入的JS)
    */
@@ -110,4 +137,4 @@ module.exports = {
       filename: "static/css/[name].[contenthash:8].css",
     }),
   ],
-};
+});
