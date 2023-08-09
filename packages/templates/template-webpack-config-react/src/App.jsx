@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import styles from "./app.module.css";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -18,6 +19,12 @@ const App = () => {
           count is {count}
         </button>
       </div>
+
+      <div className="text-3xl font-bold underline text-sky-500 ">
+        TailWindCSS
+      </div>
+
+      <div className={styles.modtitle}>CSS Module</div>
     </>
   );
 };
