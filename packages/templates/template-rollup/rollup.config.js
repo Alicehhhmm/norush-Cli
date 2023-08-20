@@ -7,7 +7,7 @@ export default {
   output: [
     {
       file: "bundle.js",
-      format: "cjs",
+      format: "esm",
     },
     {
       file: "bundle.min.js",
