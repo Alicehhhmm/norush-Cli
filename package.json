@@ -10,10 +10,8 @@
     "dev": "esno scripts/index.ts",
     "start": "esno packages/cli/src/index.ts",
     "build": "rimraf file.txt && pnpm esno scripts/build.config.ts run build",
-    "build-bundle": "rollup --config rollup.config.ts --configPlugin typescript"
-  },
-  "bin": {
-    "norush-cli": "dist/index.js"
+    "build-bundle": "rollup --config rollup.config.js --configPlugin typescript",
+    "build:bundlec": "rollup  rollup.config.js -o dist/bundle.js"
   },
   "nodemonConfig": {
     "ignore": [

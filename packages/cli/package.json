@@ -1,14 +1,24 @@
 {
   "name": "cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "description": "This is a custom CLI",
   "author": "",
   "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "norush": "./index.js"
+  },
+  "scripts": {
+    "build": "build.config.ts run build"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "rollup",
+    "cli"
+  ],
   "devDependencies": {
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.4",

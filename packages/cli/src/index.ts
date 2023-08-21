@@ -22,7 +22,7 @@ const argv = minimist<{
   template?: string
 }>(process.argv.slice(2), { string: ['_'] })
 
-console.log(argv);
+console.log('交互命令行参数', argv);
 
 const defaultTargetDir = 'norush-project'
 
