@@ -1,46 +1,46 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import spawn from 'cross-spawn'//node spawn 和 spawnSync 的跨平台解决方案。用于生成子进程。
-import minimist from 'minimist'//用于解析命令行参数选项。
-import prompts from 'prompts' // 用于命令行交互提示。
-import {
-  blue,
-  cyan,
-  green,
-  lightGreen,
-  lightRed,
-  magenta,
-  red,
-  reset,
-  yellow,
-} from 'kolorist'
+import prompts from 'prompts'
+import logoPrompts from "./logoFonts";
+import { argTargetDir, argTemplate } from "../utils";
+import { PROMPTLIST, FRAMEWORKS, SELECT_MODEL } from "./inquirer";
+import initCustomize from "./initCustomize";
+import initTemplate from "./initTemplate";
+import { lightRed, reset } from 'kolorist'
 
-// [1]|获取用户输入的交互命令行参数 _: [ 'norush-cli', 'create', 'temp' ]
-const argv = minimist<{
-  t?: string
-  template?: string
-}>(process.argv.slice(2), { string: ['_'] })
 
-console.log('交互命令行参数', argv);
+(async function initApp() {
+  try {
+    logoPrompts()
+    const result = await prompts(
+      [
+        {
+          type: argTemplate || argTargetDir ? null : 'select',
+          name: 'selectModel',
+          message: reset('请选择需要定制的模式:'),
+          choices: SELECT_MODEL.map((model) => {
+            return {
+              title: model.color(model.display || model.name),
+              value: model,
+            }
+          }),
+        },
+      ],
+      {
+        onCancel: () => {
+          throw new Error(lightRed('✖') + ' 操作已取消!')
+        },
+      },
+    )
+    result?.selectModel?.name === 'customizeConfig' || argTemplate || argTargetDir
+      ? initCustomize()
+      : initTemplate()
 
-const defaultTargetDir = 'norush-project'
+  } catch (err: any) {
+    console.log(err.message);
+  }
+})();
 
-async function init() {
-  // 根据命令行传递的参数，获取初始化项目生成的目标目录
-  const argTargetDir = formatTargetDir(argv._[0])
 
-  // 项目最终目录名称
-  let targetDir = argTargetDir || defaultTargetDir
-  console.log('targetDir@', targetDir);
 
-}
 
-// 指定目录格式
-function formatTargetDir(targetDir: string | undefined) {
-  return targetDir?.trim().replace(/\/+$/g, '')
-}
 
-init().catch((e) => {
-  console.error('初始化失败:', e)
-})
+

@@ -7,10 +7,10 @@
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
-    "norush": "./index.js"
+    "norush": "./dist/index.js"
   },
   "scripts": {
-    "build": "build.config.ts run build"
+    "norush": "esno src/index.ts"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -19,6 +19,10 @@
     "rollup",
     "cli"
   ],
+  "dependencies": {
+    "cac": "^6.7.14",
+    "figlet": "^1.6.0"
+  },
   "devDependencies": {
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.4",

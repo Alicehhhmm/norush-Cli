@@ -1,0 +1,4 @@
+export interface answerType {
+  isCustomization: Boolean
+  plugins: Array<String>
+}

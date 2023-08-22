@@ -89,6 +89,13 @@ importers:
         version: 4.8.4
 
   packages/cli:
+    dependencies:
+      cac:
+        specifier: ^6.7.14
+        version: 6.7.14
+      figlet:
+        specifier: ^1.6.0
+        version: 1.6.0
     devDependencies:
       '@types/minimist':
         specifier: ^1.2.2
@@ -4032,6 +4039,12 @@ packages:
     dependencies:
       websocket-driver: 0.7.4
     dev: true
+
+  /figlet@1.6.0:
+    resolution: {integrity: sha512-31EQGhCEITv6+hi2ORRPyn3bulaV9Fl4xOdR169cBzH/n1UqcxsiSB/noo6SJdD7Kfb1Ljit+IgR1USvF/XbdA==}
+    engines: {node: '>= 0.4.0'}
+    hasBin: true
+    dev: false
 
   /figures@2.0.0:
     resolution: {integrity: sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==}
