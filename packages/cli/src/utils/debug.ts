@@ -17,7 +17,7 @@ const switchDebug = (debug: boolean) => {
  * @param process.exit |如果出错就退出
  */
 const debugError = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[norush-cli]: `) + chalk.red(msg));
+  debugSwitch && log(chalk.reset(`#`) + chalk.hex('#646cff')(`[norush-cli]: `) + chalk.red(msg));
   process.exit(0);
 };
 
@@ -27,7 +27,7 @@ const debugError = (msg: string) => {
  * @param msg |信息
  */
 const debugInfo = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[norush-cli]: `) + chalk.green(msg));
+  debugSwitch && log(chalk.reset(`#`) + chalk.hex('#646cff')(`[norush-cli]: `) + chalk.green(msg));
 };
 
 /**
@@ -37,7 +37,7 @@ const debugInfo = (msg: string) => {
  */
 
 const debugProcess = (msg: string) => {
-  debugSwitch && log(chalk.hex('#646cff')(`[norush-cli]: `) + chalk.yellow(msg));
+  debugSwitch && log(chalk.reset(`#`) + chalk.hex('#646cff')(`[norush-cli]: `) + chalk.yellow(msg));
 };
 
 /**
@@ -46,11 +46,11 @@ const debugProcess = (msg: string) => {
  * @param msg |信息
  */
 const debugWarning = (msg: string) => {
-  log(chalk.hex('#646cff')(`[norush-cli]: `) + chalk.yellow(msg));
+  log(chalk.reset(`#`) + chalk.hex('#646cff')(`[norush-cli]: `) + chalk.yellow(msg));
 };
 
 const debugTxt = (msg: string) => {
-  log(chalk.hex('#646cff')(`[norush-cli]: `) + chalk.hex('#5c6d82')(msg));
+  log(chalk.reset(`#`) + chalk.hex('#646cff')(`[norush-cli]: `) + chalk.hex('#5c6d82')(msg));
 };
 
 export {

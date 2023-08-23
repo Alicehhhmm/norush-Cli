@@ -29,17 +29,22 @@ const SELECT_MODEL = [
 const PROMPTLIST: PromptList[] = [
   {
     type: 'confirm',
-    message: '是否需要注册定制项目配置？',
+    message: reset('是否需要注册定制项目配置？'),
     name: 'customizeInit',
   },
   {
     type: 'checkbox',
-    message: '选择需要安装的定制化配置(默认选eslint注册)',
+    message: reset('请选择需要安装的定制化配置(默认选eslint注册)'),
     name: 'plugins',
     choices: [
       {
         name: 'eslint注册',
         value: 'eslint',
+        checked: true,
+      },
+      {
+        name: 'vscode格式化注册',
+        value: 'vscode',
         checked: true,
       },
       {
@@ -52,10 +57,32 @@ const PROMPTLIST: PromptList[] = [
         value: 'commitLint',
         checked: false,
       },
+    ],
+  },
+  {
+    type: 'list',
+    message: reset('请选择对应框架,默认为基础配置'),
+    name: 'envFormat',
+    choices: [
       {
-        name: 'vscode格式化注册',
-        value: 'vscode',
+        name: 'Default',
+        value: 'default',
         checked: true,
+      },
+      {
+        name: 'Vue2',
+        value: 'isVue2',
+        checked: false,
+      },
+      {
+        name: 'Vue3',
+        value: 'isVue3',
+        checked: false,
+      },
+      {
+        name: 'React',
+        value: 'isReact',
+        checked: false,
       },
     ],
   },

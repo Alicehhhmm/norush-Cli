@@ -4,18 +4,13 @@
  * @param inquirer
  * @param fs-extra
  */
-import path, { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { readFileSync } from 'node:fs'
-import { performance } from 'node:perf_hooks'
-import minimist from 'minimist' // 参数选项解析后生成对象
-import { debugError, debugInfo, debugProcess } from "../utils";
-
 import cac from 'cac'
 import inquirer from "inquirer";
 import { PROMPTLIST, FRAMEWORKS, SELECT_MODEL } from "./inquirer";
 import { VERSION } from './constants.js'
 import { answerType } from "../types/index";
+import { debugError, isEmptyObject, debugProcess } from "./utils";
+import { startInit } from "./start";
 
 const cli = cac('norush')
 
@@ -25,8 +20,12 @@ export default async () => {
   try {
     // root
     cli.command('[root]', 'default')
-      .action(async (entry, option) => {
-        debugProcess(`请参照 norush -h 或 --help 列表的 Commands 属性,添加正确参数...`)
+      .action(async (entry: string, option: object) => {
+        const answers: answerType = await inquirer.prompt(PROMPTLIST);
+
+        isEmptyObject(answers)
+          ? debugProcess(`请参照 norush -h 或 --help 列表的 Commands 属性,添加正确参数...`)
+          : await startInit(entry, option, answers)
       })
 
     // create

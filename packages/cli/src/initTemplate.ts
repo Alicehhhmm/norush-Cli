@@ -15,7 +15,7 @@ import {
   reset,
   yellow,
 } from 'kolorist'
-import { argTargetDir, argTemplate, formatTargetDir } from "../utils";
+import { argTargetDir, argTemplate, formatTargetDir } from "./utils";
 import { FRAMEWORKS } from './inquirer'
 
 const defaultTargetDir = 'my-project'
