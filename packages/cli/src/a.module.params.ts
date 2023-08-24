@@ -51,7 +51,6 @@ export const BASE_DEV_DEPS_commitlint: Array<string> = [
   'commitizen@^4.2.4',
   'cz-customizable@^6.9.0',
   '@commitlint/cz-commitlint@^17.0.3',
-  'inquirer@^8.0.0',
 ];
 
 // .hushy commit 

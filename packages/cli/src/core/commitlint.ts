@@ -19,6 +19,8 @@ export const commitLintInit = async () => {
   await writeInPkg(BASE_DEV_DEPS_commitlint);
   await run('npx husky add .husky/commit-msg "npm-run-test"');
   let pkgJson = await getPackageJson();
+
+  // 配置Git提交辅助commitizen插件,并添加commit脚本
   pkgJson['config'] = {
     commitizen: {
       path: '@commitlint/cz-commitlint',
