@@ -1,5 +1,6 @@
 
 import { eslintInit, eslintIgnoreInit } from './core/eslint'
+import { vscodeInit } from './core/vscode'
 
 import { answerType } from "../types/index";
 import {
@@ -26,6 +27,9 @@ export async function startInit(
 
     // 添加忽略文件 .eslintignore
     hasElementInArray(plugins, 'eslint') && (await eslintIgnoreInit())
+
+    // 添加项目的编辑器定制化设置 .vscode 
+    hasElementInArray(plugins, 'vscode') && (await vscodeInit())
 
     debugProcess(`恭喜您，成功注册以下配置：\n
         ${hasElementInArray(plugins, 'eslint')} \n

@@ -1,13 +1,13 @@
 import path from 'path';
 import fs from 'fs-extra'
 import spawn from 'cross-spawn'
-import { getEnv, getPackageJson } from './env'
 import { checkNpmOrYarn } from './check'
+import { getEnv, getPackageJson } from './env'
 import { debugInfo, debugWarning } from './debug'
 
+const basePath = process.cwd()
 
 export const getPath = (filePathName: string) => {
-  const basePath = getEnv('base') as string;
   return path.resolve(basePath, filePathName);
 };
 
