@@ -1,6 +1,8 @@
 
 import { eslintInit, eslintIgnoreInit } from './core/eslint'
 import { vscodeInit } from './core/vscode'
+import { huskyInit } from './core/huskys'
+import { commitLintInit } from './core/commitlint'
 
 import { answerType } from "../types/index";
 import {
@@ -30,6 +32,12 @@ export async function startInit(
 
     // 添加项目的编辑器定制化设置 .vscode 
     hasElementInArray(plugins, 'vscode') && (await vscodeInit())
+
+    // 添加git提交配置,安装 husky 并自动生成配置文件
+    hasElementInArray(plugins, 'husky') && (await huskyInit())
+
+    // 添加git提交前校验约束commitLint
+    hasElementInArray(plugins, 'commitLint') && (await commitLintInit())
 
     debugProcess(`恭喜您，成功注册以下配置：\n
         ${hasElementInArray(plugins, 'eslint')} \n

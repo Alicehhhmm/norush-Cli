@@ -38,3 +38,34 @@ export const ESL_IGNORE: string = `
   .babel.config.js
   !.umirc.ts
 `;
+
+// husky config
+export const BASE_DEV_DEPS_HUSKY: Array<string> = [
+  'husky@^8.0.1',
+  'lint-staged@^12.4.1'
+];
+// commitlint config
+export const BASE_DEV_DEPS_commitlint: Array<string> = [
+  '@commitlint/cli@^17.0.3',
+  '@commitlint/config-angular@^17.0.3',
+  'commitizen@^4.2.4',
+  'cz-customizable@^6.9.0',
+  '@commitlint/cz-commitlint@^17.0.3',
+  'inquirer@^8.0.0',
+];
+
+// .hushy commit 
+export const commitMsg: string = `
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+ 
+npx --no-install commitlint --edit $1
+`;
+
+// .hushy precommit 
+export const preCommit: string = `
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run pre-commit
+`;
