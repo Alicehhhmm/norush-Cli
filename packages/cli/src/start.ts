@@ -1,5 +1,5 @@
 
-import { eslintInit } from './core/eslint'
+import { eslintInit, eslintIgnoreInit } from './core/eslint'
 
 import { answerType } from "../types/index";
 import {
@@ -19,13 +19,13 @@ export async function startInit(
 
   const { envFormat = 'default', plugins = [] } = answers
 
-  console.log('start2', answers, plugins);
-
   try {
 
-    // 安装eslint 和 prettier 并自动生成配置文件
+    // 通过问询参数：安装eslint 和 prettier 并自动生成配置文件
     hasElementInArray(plugins, 'eslint') && (await eslintInit(envFormat, pckJson))
 
+    // 添加忽略文件 .eslintignore
+    hasElementInArray(plugins, 'eslint') && (await eslintIgnoreInit())
 
     debugProcess(`恭喜您，成功注册以下配置：\n
         ${hasElementInArray(plugins, 'eslint')} \n

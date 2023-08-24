@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import { getPackageJson, writeInPkg, getPath } from '../utils';
 import { eslintrcFn, prettierrcInit } from '../templates/template-init';
 import {
+  ESL_IGNORE,
   BASE_DEV_DEPS,
   BASE_DEV_DEPS_VUE2,
   BASE_DEV_DEPS_VUE3,
@@ -10,7 +11,10 @@ import {
 import { checkVueVersion } from '../utils';
 
 
-
+/**
+ * @description eslintInit
+ * @param {string} BASE_DEV_DEPS|eslint默认动态参数
+ */
 export const eslintInit = async (envFormat: string, pckJson: any) => {
   let devDependencies: string[] = BASE_DEV_DEPS;
   const deps = { ...pckJson.devDependencies, ...pckJson.dependencies };
@@ -47,4 +51,13 @@ export const eslintInit = async (envFormat: string, pckJson: any) => {
     delete pkgJson.eslintConfig;
   }
   fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2, flag: 'w', encoding: 'utf-8' });
+};
+
+
+/**
+ * @description Eslintignore
+ * @param {string} ESL_IGNORE|动态参数
+ */
+export const eslintIgnoreInit = async () => {
+  fs.outputFileSync(getPath('.eslintignore'), ESL_IGNORE);
 };

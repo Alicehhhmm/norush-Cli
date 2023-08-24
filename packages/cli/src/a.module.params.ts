@@ -5,7 +5,7 @@
  * @param {string}
  */
 
-export const BASE_DEV_DEPS = [
+export const BASE_DEV_DEPS: Array<string> = [
   'eslint@^7.25.0',
   'prettier@^2.7.1',
   'eslint-friendly-formatter@^4.0.1',
@@ -15,17 +15,26 @@ export const BASE_DEV_DEPS = [
 ];
 
 // Vue eslint configuration
-export const BASE_DEV_DEPS_VUE2 = [
+export const BASE_DEV_DEPS_VUE2: Array<string> = [
   'eslint-plugin-vue@^6.2.2'
 ];
-export const BASE_DEV_DEPS_VUE3 = [
-  'eslint-plugin-vue@^9.2.0', '@typescript-eslint/parser@^5.30.7'
+export const BASE_DEV_DEPS_VUE3: Array<string> = [
+  'eslint-plugin-vue@^9.2.0',
+  '@typescript-eslint/parser@^5.30.7'
 ];
 
 // React eslint configuration
-export const BASE_DEV_DEPS_REACT = [
+export const BASE_DEV_DEPS_REACT: Array<string> = [
   'eslint-plugin-react@^7.30.1',
   'eslint-plugin-jsx-a11y@^6.6.1',
   '@typescript-eslint/parser@^5.30.7',
   '@typescript-eslint/eslint-plugin@5.30.7',
 ];
+
+// Eslintignore config
+export const ESL_IGNORE: string = `
+  .prettierrc
+  !commitlint.config.js
+  .babel.config.js
+  !.umirc.ts
+`;
