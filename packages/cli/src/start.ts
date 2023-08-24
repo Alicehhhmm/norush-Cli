@@ -40,8 +40,13 @@ export async function startInit(
     hasElementInArray(plugins, 'commitLint') && (await commitLintInit())
 
     debugProcess(`恭喜您，成功注册以下配置：\n
+        ${envFormat ? envFormat : ''} \n
         ${hasElementInArray(plugins, 'eslint')} \n
+        ${hasElementInArray(plugins, 'vscode')} \n
+        ${hasElementInArray(plugins, 'husky')} \n
+        ${hasElementInArray(plugins, 'commitLint')} \n
     `)
+
 
     // 部分版本依赖可能有冲突，建议重新安装node modules
     debugProcess(`依赖安装请执行: \n\n npm install\n\n # or \n\n yarn install \n\n`)

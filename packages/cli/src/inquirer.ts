@@ -34,7 +34,7 @@ const PROMPTLIST: PromptList[] = [
   },
   {
     type: 'checkbox',
-    message: reset('请选择需要安装的定制化配置(默认选eslint注册)'),
+    message: reset('请选择需要安装的定制化配置(默认选eslint注册):'),
     name: 'plugins',
     choices: [
       {
@@ -61,7 +61,7 @@ const PROMPTLIST: PromptList[] = [
   },
   {
     type: 'list',
-    message: reset('请选择对应框架,默认为基础配置'),
+    message: reset('请选择对应框架(默认为基础配置):'),
     name: 'envFormat',
     choices: [
       {
