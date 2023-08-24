@@ -46,5 +46,5 @@ export const eslintInit = async (envFormat: string, pckJson: any) => {
   if (pkgJson['eslintConfig']) {
     delete pkgJson.eslintConfig;
   }
-  fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2 });
+  fs.writeJsonSync(getPath('package.json'), pkgJson, { spaces: 2, flag: 'w', encoding: 'utf-8' });
 };

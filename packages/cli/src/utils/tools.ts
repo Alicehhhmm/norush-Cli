@@ -6,9 +6,9 @@ import { checkNpmOrYarn } from './check'
 import { debugInfo, debugWarning } from './debug'
 
 
-export const getPath = (name: string) => {
+export const getPath = (filePathName: string) => {
   const basePath = getEnv('base') as string;
-  return path.resolve(basePath, name);
+  return path.resolve(basePath, filePathName);
 };
 
 export const isEmptyObject = (arg: object): boolean => {
@@ -29,5 +29,5 @@ export const writeInPkg = async (devArr: string[], key: string = 'devDependencie
     pkg[key][k] = v
     debugInfo(`${item} ✅`)
   })
-  // fs.writeJsonSync(getPath('package.json'), pkg, { spaces: 2 })
+  fs.writeJsonSync(getPath('package.json'), pkg, { spaces: 2 })
 }

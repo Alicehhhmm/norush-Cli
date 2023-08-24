@@ -41,8 +41,10 @@ export default async () => {
       .alias('init')
       .option('-e, --eslints ', `[string] 自动化eslints`)
       .option('-p, --prettierr ', `[string] 自动化prettierr`)
-      .action(async (root, option) => {
-        console.log('start', root, option)
+      .action(async (entry, option) => {
+        const answers: answerType = await inquirer.prompt(PROMPTLIST);
+        await startInit(entry, option, answers)
+        console.log('start', entry, option)
       })
 
     // buill
