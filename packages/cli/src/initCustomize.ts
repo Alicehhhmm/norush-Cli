@@ -6,7 +6,7 @@
  */
 import cac from 'cac'
 import inquirer from "inquirer";
-import { PROMPTLIST, FRAMEWORKS, SELECT_MODEL } from "./inquirer";
+import { PROMPTLIST } from "./inquirer";
 import { VERSION } from './constants.js'
 import { answerType } from "../types/index";
 import { debugError, isEmptyObject, debugProcess } from "./utils";
@@ -15,7 +15,6 @@ import { startInit } from "./start";
 const cli = cac('norush')
 
 export default async () => {
-  console.log('initCustomize',);
 
   try {
     // root
@@ -44,7 +43,6 @@ export default async () => {
       .action(async (entry, option) => {
         const answers: answerType = await inquirer.prompt(PROMPTLIST);
         await startInit(entry, option, answers)
-        console.log('start', entry, option)
       })
 
     // buill

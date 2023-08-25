@@ -10,7 +10,8 @@
     "norush": "./dist/index.js"
   },
   "scripts": {
-    "norush": "esno src/cli.ts"
+    "norush": "esno src/cli.ts",
+    "update-version": "esno src/core/version.ts Minor"
   },
   "engines": {
     "node": ">=16.0.0"

@@ -16,7 +16,7 @@ export const env = {
 type envKeys = keyof typeof env;
 
 /**
- * @name 设置变量
+ * @description 设置变量
  */
 export const setEnv = (key: envKeys, val: any) => {
   env[key] = val as never;
@@ -24,14 +24,14 @@ export const setEnv = (key: envKeys, val: any) => {
 
 
 /**
- * @name 获取变量
+ * @description 获取变量
  */
 export const getEnv = (key: envKeys) => {
   return env[key];
 };
 
 /**
- * @name 把package.json转化为json
+ * @description 把package.json转化为json
  */
 export const getPackageJson = async (base: string = getEnv('base') as string) => {
   const file = path.resolve(base, 'package.json');

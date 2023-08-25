@@ -22,10 +22,7 @@ function formatTargetDir(targetDir: string | undefined) {
 const argTargetDir = formatTargetDir(argv._[0])
 
 const argTemplate = argv.template || argv.t || argv.h || argv.help
-console.log('===============process.argv=================', process.argv);
-console.log('===============argv=================', argv);
-console.log('===============argTemplate=================', argTemplate);
-console.log('===============argTargetDir=================', argTargetDir);
+
 
 
 export {
