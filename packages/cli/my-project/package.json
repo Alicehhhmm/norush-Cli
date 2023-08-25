@@ -1,0 +1,20 @@
+{
+  "name": "template-rollup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "rollup src/main.js -f cjs -d dist",
+    "build:m2": "rollup src/main.js src/main2.js -f es -d dist",
+    "build:bundle": "rollup src/main.js -o bundle.js -f cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.0.0",
+    "rollup": "^3.25.3",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

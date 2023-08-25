@@ -1,7 +1,5 @@
 import fs from 'fs-extra'
 import { getPath, debugInfo, getPackageJson } from '../utils'
-import minimist from 'minimist'//用于解析命令行参数选项。
-
 
 const versionInit = async () => {
   // 默认为package.json版本更新

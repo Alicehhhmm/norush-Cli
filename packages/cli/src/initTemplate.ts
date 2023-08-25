@@ -1,64 +1,33 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import spawn from 'cross-spawn'//node spawn 和 spawnSync 的跨平台解决方案。用于生成子进程。
-import minimist from 'minimist'//用于解析命令行参数选项。
-import prompts from 'prompts' // 用于命令行交互提示。
-import {
-  blue,
-  cyan,
-  green,
-  lightGreen,
-  lightRed,
-  magenta,
-  red,
-  reset,
-  yellow,
-} from 'kolorist'
-import { argTargetDir, argTemplate, formatTargetDir } from "./utils";
+import prompts from 'prompts'
+import { red, reset } from 'kolorist'
+import { argTargetDir, argTemplate, debugProcess } from "./utils";
 import { FRAMEWORKS } from './inquirer'
 
-const defaultTargetDir = 'my-project'
+const cwd = process.cwd()
 
 async function initTemplate() {
 
-  // 项目最终目录名称
-  let targetDir = argTargetDir || defaultTargetDir
+  let targetDir = argTargetDir || 'my-project'
 
-
-  // 可选用框架对应的模板代码
   const TEMPLATES = FRAMEWORKS.map(
     (f) => (f.variants && f.variants.map((v) => v.name)) || [f.name],
   ).reduce((a, b) => a.concat(b), [])
 
-  // 用户设置的最终结果
-  let result: prompts.Answers<
-    'projectName' | 'framework'
-  >
+  let result: prompts.Answers<'framework'>
 
   try {
     result = await prompts(
       [
-        // 初始化项目名称，若命令行设置了相关参数，则不需要调整
         {
-          type: argTargetDir ? null : 'text',
-          // type: 'text',
-          name: 'projectName',
-          message: reset('Project name:'),
-          initial: defaultTargetDir,
-          onState: (state) => {
-            targetDir = formatTargetDir(state.value) || defaultTargetDir
-          },
-        },
-        // 校验模板是否可用并选择要生成的代码模板所属框架
-        {
-          type:
-            argTemplate && TEMPLATES.includes(argTemplate) ? null : 'select',
+          type: 'select',
           name: 'framework',
           message:
             typeof argTemplate === 'string' && !TEMPLATES.includes(argTemplate)
               ? reset(
-                `"${argTemplate}" isn't a valid template. Please choose from below: `,
+                `"${argTemplate}" 不是一个有效的模板。请从以下选项中选择:`,
               )
               : reset('请选择你需要的模板:'),
           initial: 0,
@@ -84,10 +53,79 @@ async function initTemplate() {
 
 
   // 用户选择的最终参数
-  const { projectName, } = result
+  const { framework } = result
 
-  console.log('result@2', projectName, argTargetDir, result);
+  const root = path.join(cwd, targetDir)
 
+  let template: string = framework?.name
+
+  const templateDir = path.resolve(
+    fileURLToPath(import.meta.url),
+    '../',
+    `templates`,
+  )
+  const templateDirFile = path.join(templateDir, template)
+
+  /**
+   * @description 文件复制
+   * @param src |需要复制的文件、文件夹路径
+   * @param dest |目标文件路径
+   */
+  function copy(src: string, dest: string) {
+    const stat = fs.statSync(src)
+    const hasDir = path.dirname(dest)
+
+    if (!fs.existsSync(hasDir)) {
+      fs.mkdirSync(hasDir, { recursive: true });
+    }
+
+    if (stat?.isDirectory()) {
+      copyDir(src, dest)
+    } else {
+      fs.copyFileSync(src, dest)
+    }
+  }
+
+  function copyDir(srcDir: string, destDir: string) {
+    fs.mkdirSync(destDir, { recursive: true })
+    for (const file of fs.readdirSync(srcDir)) {
+      const srcFile = path.resolve(srcDir, file)
+      const destFile = path.resolve(destDir, file)
+      copy(srcFile, destFile)
+    }
+  }
+
+  const write = (file: string, content?: string) => {
+    const targetPath = path.join(root, file)
+
+    if (content) {
+      fs.writeFileSync(targetPath, content)
+    } else {
+      copy(path.join(templateDirFile, file), targetPath)
+    }
+  }
+
+  /**
+   * @description 读取模板文件
+   * @param templateDirFile|选择的模板文件夹
+   */
+  const files = fs.readdirSync(templateDirFile)
+
+  for (const file of files.filter((f) => f !== 'node_modules')) {
+    write(file)
+  }
+
+  const cdProjectName = path.relative(cwd, root)
+  debugProcess(`成功获取模板:  ${template} \n`)
+  if (root !== cwd) {
+    console.log(
+      `  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName
+      }`,
+    )
+  }
+  console.log(`  npm install`)
+  console.log(`  npm run dev`)
+  console.log()
 }
 
 
