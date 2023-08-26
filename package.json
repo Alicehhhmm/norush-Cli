@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "esno scripts/index.ts",
     "start": "esno packages/cli/src/index.ts",
-    "build": "rimraf file.txt && pnpm esno scripts/build.config.ts run build",
+    "clear": "rimraf",
+    "build": "rollup --config rollup.config.js",
     "build-bundle": "rollup --config rollup.config.js --configPlugin typescript",
     "build:bundlec": "rollup  rollup.config.js -o dist/bundle.js"
   },

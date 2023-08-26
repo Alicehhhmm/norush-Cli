@@ -1,15 +1,18 @@
 import prompts from 'prompts'
 import logoPrompts from "./logoFonts";
 import { argTargetDir, argTemplate } from "./utils";
-import { PROMPTLIST, FRAMEWORKS, SELECT_MODEL } from "./inquirer";
+import { SELECT_MODEL } from "./inquirer";
 import initCustomize from "./initCustomize";
 import initTemplate from "./initTemplate";
 import { lightRed, reset } from 'kolorist'
 
 
+
 (async function initApp() {
+
   try {
-    logoPrompts()
+
+    await logoPrompts()
     const result = await prompts(
       [
         {

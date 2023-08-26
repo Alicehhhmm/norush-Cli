@@ -2,7 +2,7 @@ import figlet from "figlet";
 import { LOGOFONT } from "./constants";
 import { lightCyan } from 'kolorist'
 
-export default () => {
+export default async () => {
   console.log(
     lightCyan(
       figlet.textSync(LOGOFONT, {

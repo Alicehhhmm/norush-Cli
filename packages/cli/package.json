@@ -11,7 +11,7 @@
   },
   "scripts": {
     "norush": "esno src/cli.ts",
-    "update-version": "esno src/core/version.ts Minor"
+    "update-version": "esno src/core/version.ts "
   },
   "engines": {
     "node": ">=16.0.0"
