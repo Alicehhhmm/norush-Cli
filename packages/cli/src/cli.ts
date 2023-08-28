@@ -37,8 +37,8 @@ import { lightRed, reset } from 'kolorist'
       ? initCustomize()
       : initTemplate()
 
-  } catch (err: any) {
-    console.log(err.message);
+  } catch (error: any) {
+    console.log(error.message);
   }
 })();
 

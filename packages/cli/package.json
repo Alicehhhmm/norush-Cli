@@ -5,13 +5,14 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./src/cli.ts",
   "bin": {
-    "norush": "./dist/index.js"
+    "norush": "./dist/cli.js"
   },
   "scripts": {
     "norush": "esno src/cli.ts",
-    "update-version": "esno src/core/version.ts "
+    "update-version": "esno src/core/version.ts ",
+    "build-bundle": "rollup --config build.config.ts --configPlugin typescript"
   },
   "engines": {
     "node": ">=16.0.0"

@@ -1,20 +1,24 @@
 // rollup.config.js
 import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import nodeResolve from "@rollup/plugin-node-resolve";
 
 export default {
-  input: "src/main.js",
-  output: [
-    {
-      file: "bundle.js",
-      format: "esm",
-    },
-    {
-      file: "bundle.min.js",
-      format: "iife",
-      name: "version",
-      plugins: [terser()],
-    },
+  input: "src/main.ts",
+  external: [/node_modules/],
+  output: {
+    dir: "./dist",
+    format: "esm",
+  },
+
+  plugins: [
+    json(),
+    terser(),
+    typescript(),
+    nodeResolve({
+      extensions: [".js", ".ts"],
+      preferBuiltins: true,
+    }),
   ],
-  plugins: [json()],
 };

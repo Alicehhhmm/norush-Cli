@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c rollup.config.js ",
+    "build:clear": "rimraf dist",
+    "build-bundle": "rollup --config rollup.config.js --configPlugin typescript",
     "build:dev": "rollup src/main.js -f cjs -d dist",
     "build:m2": "rollup src/main.js src/main2.js -f es -d dist",
     "build:bundle": "rollup src/main.js -o bundle.js -f cjs"
