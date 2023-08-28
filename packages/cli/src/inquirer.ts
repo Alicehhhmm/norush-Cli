@@ -10,7 +10,6 @@ import {
   yellow,
 } from 'kolorist'
 
-
 // 问询列表选择
 const SELECT_MODEL = [
   {
@@ -94,6 +93,11 @@ const FRAMEWORKS: Framework[] = [
     name: 'template-rollup',
     display: 'Rollup',
     color: magenta,
+  },
+  {
+    name: 'template-rollup-ts',
+    display: 'Rollup-ts',
+    color: cyan,
   },
   {
     name: 'template-webpack-config',

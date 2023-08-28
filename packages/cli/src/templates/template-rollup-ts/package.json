@@ -1,0 +1,15 @@
+{
+  "name": "template-rollup-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node dist/bundle.js",
+    "build": "rollup src/main.js --format cjs --dir dist",
+    "build:config": "rollup --config rollup.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -5,12 +5,11 @@
 
 
 // template information Types
-
 type Framework = {
   name: string
   display: string
   color: ColorFunc
-  variants: FrameworkVariant[]
+  variants?: FrameworkVariant[]
 }
 type FrameworkVariant = {
   name: string
