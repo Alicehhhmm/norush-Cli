@@ -1,5 +1,3 @@
-import path, { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
 // 读取package.json

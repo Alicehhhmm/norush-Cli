@@ -7,12 +7,13 @@
   "type": "module",
   "main": "./src/cli.ts",
   "bin": {
-    "norush": "./dist/cli.js"
+    "norush": "./bin/index.js"
   },
   "scripts": {
-    "norush": "esno src/cli.ts",
+    "norush": "node dist/cli.js",
+    "norush:dev": "esno src/cli.ts",
     "update-version": "esno src/core/version.ts ",
-    "build-bundle": "rollup --config build.config.ts --configPlugin typescript"
+    "build:config": "pnpm rimraf dist && rollup --config build.config.ts --configPlugin typescript"
   },
   "engines": {
     "node": ">=16.0.0"
