@@ -19,12 +19,12 @@ export default async () => {
   try {
     // root
     cli.command('[root]', 'default')
-      .action(async (entry: string, option: object) => {
+      .action(async () => {
         const answers: answerType = await inquirer.prompt(PROMPTLIST);
 
         isEmptyObject(answers)
           ? debugProcess(`请参照 norush -h 或 --help 列表的 Commands 属性,添加正确参数...`)
-          : await startInit(entry, option, answers)
+          : await startInit(answers)
       })
 
     // create
@@ -40,9 +40,9 @@ export default async () => {
       .alias('init')
       .option('-e, --eslints ', `[string] 自动化eslints`)
       .option('-p, --prettierr ', `[string] 自动化prettierr`)
-      .action(async (entry, option) => {
+      .action(async () => {
         const answers: answerType = await inquirer.prompt(PROMPTLIST);
-        await startInit(entry, option, answers)
+        await startInit(answers)
       })
 
     // buill
@@ -59,7 +59,7 @@ export default async () => {
     cli.version(VERSION)
 
     cli.parse()
-  } catch (error) {
+  } catch (error: any) {
     debugError(`错误！温馨提示: ${error.message}`)
   }
 }

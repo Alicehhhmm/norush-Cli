@@ -1,4 +1,4 @@
-import minimist from 'minimist'//用于解析命令行参数选项。
+import minimist from 'minimist'
 
 /**
  * @description 命令行参数说明

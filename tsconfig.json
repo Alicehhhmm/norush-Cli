@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "ESNext",
-    "outDir": "./dist",
-    "removeComments": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "outDir": "./lib", //指定编译后的 JavaScript 文件输出的目录，这里是 "./lib"
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "skipLibCheck": true, //为 true时跳过对声明文件（.d.ts）的检查。声明文件通常是用来描述第三方库或模块的类型信息
+    "noImplicitAny": false, //将其设置为 false 表示允许存在隐含的 any 类型而不报错
+    "removeComments": true, //是否移除编译后的 JavaScript 代码中的注释。将其设置为 true 可以减小生成的代码体积。
+    "noUnusedLocals": true, //是否在代码中存在未使用的局部变量时报错。可以帮助发现未使用的变量并进行清理。
+    "esModuleInterop": true, //是否启用对默认导入和命名空间导入的交互性支持。当使用一些不规范的 CommonJS 模块时，可以通过启用此选项来更好地处理模块的导入
+    "moduleResolution": "Node", //指定模块解析策略为 Node，表示使用 Node.js 的模块解析算法。
+    "resolveJsonModule": true, //是否允许导入 JSON 模块。当你需要导入 JSON 文件时，将其设置为 true 可以有效地解析并加载 JSON 文件
+    "noUnusedParameters": true, //是否在代码中存在未使用的函数参数时报错。可以帮助发现未使用的函数参数并进行清理
+    "allowSyntheticDefaultImports": true, //是否允许从没有默认导出的模块中默认导入。在某些情况下，一些库可能没有默认导出，但仍然允许使用默认导入语法
+    "forceConsistentCasingInFileNames": true //是否强制保持文件名的一致性。这意味着在引用文件时，要求文件名的大小写与实际文件名完全匹配。
   },
-  "include": ["./scripts**/*.ts", "./packages**/*.ts", "./packages**/*.d.ts"],
+  "include": ["./scripts**/*.ts", "./packages**/*.ts"],
   "exclude": ["node_modules"]
 }

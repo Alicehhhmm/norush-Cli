@@ -3,12 +3,39 @@ import {
   cyan,
   green,
   lightGreen,
-  lightRed,
   magenta,
-  red,
   reset,
   yellow,
 } from 'kolorist'
+
+// template information Types
+type Framework = {
+  name: string
+  display: string
+  color: ColorFunc
+  variants?: FrameworkVariant[]
+}
+type FrameworkVariant = {
+  name: string
+  display: string
+  color: ColorFunc
+  customCommand?: string
+}
+type ColorFunc = (str: string | number) => string
+
+
+// prompt information Types
+type PromptList = {
+  type: string,
+  message: string,
+  name: string,
+  choices?: ArrayChoices[],
+}
+type ArrayChoices = {
+  name: string,
+  value: string,
+  checked: boolean,
+}
 
 // 问询列表选择
 const SELECT_MODEL = [

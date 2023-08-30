@@ -1,4 +1,3 @@
-
 import { eslintInit, eslintIgnoreInit } from './core/eslint'
 import { vscodeInit } from './core/vscode'
 import { huskyInit } from './core/huskys'
@@ -13,11 +12,7 @@ import {
   hasElementInArray
 } from "./utils";
 
-export async function startInit(
-  entry: string,
-  option: object,
-  answers: answerType,
-) {
+export async function startInit(answers: answerType) {
   const pckJson = await getPackageJson()
 
   const { envFormat = 'default', plugins = [] } = answers

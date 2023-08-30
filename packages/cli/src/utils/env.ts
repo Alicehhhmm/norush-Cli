@@ -1,6 +1,5 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { checkVueVersion } from './check';
 
 export const env = {
   base: '',

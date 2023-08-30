@@ -13,7 +13,7 @@
     "norush": "node dist/cli.js",
     "norush:dev": "esno src/cli.ts",
     "update-version": "esno src/core/version.ts ",
-    "build:config": "pnpm rimraf dist && rollup --config build.config.ts --configPlugin typescript"
+    "build:config": "pnpm rimraf dist && rollup --c ./scripts/build.config.ts --configPlugin typescript"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "cac": "^6.7.14",
-    "figlet": "^1.6.0"
+    "figlet": "^1.6.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.2",

@@ -8,7 +8,7 @@ import { lightRed, reset } from 'kolorist'
 
 
 
-(async function initApp() {
+async function initApp() {
 
   try {
 
@@ -40,7 +40,11 @@ import { lightRed, reset } from 'kolorist'
   } catch (error: any) {
     console.log(error.message);
   }
-})();
+}
+
+initApp().catch((e) => {
+  console.error(e)
+})
 
 
 

@@ -1,8 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra'
 import spawn from 'cross-spawn'
-import { checkNpmOrYarn } from './check'
-import { getEnv, getPackageJson } from './env'
+import { getPackageJson } from './env'
 import { debugInfo, debugWarning } from './debug'
 
 const basePath: string = process.cwd()
