@@ -8,7 +8,6 @@ import cac from 'cac'
 import inquirer from "inquirer";
 import { PROMPTLIST } from "./inquirer";
 import { VERSION } from './constants.js'
-import { answerType } from "../types/index";
 import { debugError, isEmptyObject, debugProcess } from "./utils";
 import { startInit } from "./start";
 
@@ -20,7 +19,7 @@ export default async () => {
     // root
     cli.command('[root]', 'default')
       .action(async () => {
-        const answers: answerType = await inquirer.prompt(PROMPTLIST);
+        const answers = await inquirer.prompt(PROMPTLIST);
 
         isEmptyObject(answers)
           ? debugProcess(`请参照 norush -h 或 --help 列表的 Commands 属性,添加正确参数...`)
@@ -41,7 +40,7 @@ export default async () => {
       .option('-e, --eslints ', `[string] 自动化eslints`)
       .option('-p, --prettierr ', `[string] 自动化prettierr`)
       .action(async () => {
-        const answers: answerType = await inquirer.prompt(PROMPTLIST);
+        const answers = await inquirer.prompt(PROMPTLIST);
         await startInit(answers)
       })
 
@@ -59,7 +58,7 @@ export default async () => {
     cli.version(VERSION)
 
     cli.parse()
-  } catch (error: any) {
-    debugError(`错误！温馨提示: ${error.message}`)
+  } catch (error) {
+    debugError(`错误！温馨提示${error} `)
   }
 }

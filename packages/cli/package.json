@@ -23,6 +23,7 @@
     "cli"
   ],
   "dependencies": {
+    "@types/node": "^18.11.0",
     "cac": "^6.7.14",
     "figlet": "^1.6.0",
     "ts-node": "^10.9.1"

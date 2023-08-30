@@ -16,6 +16,6 @@
     "allowSyntheticDefaultImports": true, //是否允许从没有默认导出的模块中默认导入。在某些情况下，一些库可能没有默认导出，但仍然允许使用默认导入语法
     "forceConsistentCasingInFileNames": true //是否强制保持文件名的一致性。这意味着在引用文件时，要求文件名的大小写与实际文件名完全匹配。
   },
-  "include": ["./scripts**/*.ts", "./packages**/*.ts"],
+  "include": ["./**/*.ts", "../src**/*.ts"],
   "exclude": ["node_modules"]
 }

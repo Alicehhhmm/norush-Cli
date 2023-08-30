@@ -37,8 +37,8 @@ async function initApp() {
       ? initCustomize()
       : initTemplate()
 
-  } catch (error: any) {
-    console.log(error.message);
+  } catch (error) {
+    console.log(error);
   }
 }
 

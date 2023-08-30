@@ -7,10 +7,10 @@ import alias from "@rollup/plugin-alias";
 import postcss from "rollup-plugin-postcss";
 import filesize from "rollup-plugin-filesize";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
+// import typescript from "@rollup/plugin-typescript";
+import typescript from "rollup-plugin-typescript2";
 import nodeResolve from "@rollup/plugin-node-resolve";
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-console.log('../templates', process.cwd());
 
 
 export default {
@@ -20,7 +20,7 @@ export default {
   external: [/node_modules/],
   output: {
     dir: 'dist',
-    format: "es",
+    format: "esm",
     sourcemap: true,
     entryFileNames: "[name]",
     chunkFileNames: "chunks/chunk-[name]-[hash].js",

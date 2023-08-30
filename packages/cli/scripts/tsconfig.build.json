@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "plugins": [
       { "transform": "typescript-transform-paths" },
@@ -8,9 +8,9 @@
         "afterDeclarations": true //设置为 true，表示在生成声明文件（.d.ts）之后再应用该插件
       }
     ],
-    "sourceMap": false,
+    "sourceMap": true,
     "importHelpers": true,
-    "noUnusedLocals": true, //是否报告未使用的局部变量。为 true 时在编译过程中，如果存在未使用的局部变量会发出警告或错误提示
+    "noUnusedLocals": true, //是否报告未使用的局部变量
     "declaration": true, //设置为 true 时，会生成相应的声明文件（.d.ts），用于提供给其他项目使用。
     "strict": true, //启用所有严格类型检查选项
     "noEmit": false, //是否生成编译后的 JavaScript 文件
@@ -18,7 +18,7 @@
     "skipLibCheck": false, //是否跳过对声明文件的检查
     "noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
     "isolatedModules": true, // 将每个文件作为单独的模块进行编译
-    "esModuleInterop": true, //是否启用对默认导入和命名空间导入的交互性支持
+    "esModuleInterop": false, //是否启用对默认导入和命名空间导入的交互性支持
     "resolveJsonModule": true, //是否允许导入 JSON 模块
     "useDefineForClassFields": true, //是否在类字段上使用定义初始化语法
     "allowSyntheticDefaultImports": true, //是否允许从没有默认导出的模块中默认导入
