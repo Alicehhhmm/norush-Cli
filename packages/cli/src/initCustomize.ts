@@ -60,5 +60,6 @@ export default async () => {
     cli.parse()
   } catch (error) {
     debugError(`错误！温馨提示${error} `)
+    console.log('error:', error);
   }
 }

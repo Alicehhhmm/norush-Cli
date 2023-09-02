@@ -1,6 +1,6 @@
 {
   "name": "norush-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This is a custom CLI",
   "author": "",
   "license": "ISC",
@@ -18,12 +18,18 @@
   "files": [
     "bin/index.js",
     "templates/template-*",
+    "README.md",
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alicehhhmm/norush-Cli",
+    "directory": "packages/cli"
+  },
   "bugs": {
     "url": "https://github.com/Ailcehhhmm/norush-cli/issues"
   },
-  "homepage": "https://github.com/Alicehhhmm/norush-Cli/tree/main/packages/cli#readme",
+  "homepage": "https://github.com/Alicehhhmm/norush-Cli/blob/main/packages/cli/README.md",
   "engines": {
     "node": ">=16.0.0"
   },
@@ -41,6 +47,8 @@
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.4.4",
     "kolorist": "^1.8.0",
-    "prompts": "^2.4.2"
+    "prompts": "^2.4.2",
+    "eslint": "^7.25.0",
+    "prettier": "^2.7.1"
   }
 }

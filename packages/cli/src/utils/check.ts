@@ -9,7 +9,7 @@ import { getEnv } from './env';
  * @param {string} fileName|文件或文件夹名称 例如(.git)
  */
 export const pathExists = async (fileName: string, ext: boolean = true): Promise<boolean | void> => {
-  const base = getEnv('base') as string;
+  const base = getEnv('base') as string || process.cwd();
   const res = await fs.pathExists(`${base}/${fileName}`);
   if (!res) {
     ext && debugError(`${base}/${fileName}不存在`);

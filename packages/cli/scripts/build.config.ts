@@ -2,7 +2,7 @@
 import path from "node:path";
 import { fileURLToPath } from 'node:url'
 import json from "@rollup/plugin-json";
-import terser from "@rollup/plugin-terser";
+// import terser from "@rollup/plugin-terser";
 import alias from "@rollup/plugin-alias";
 import postcss from "rollup-plugin-postcss";
 import filesize from "rollup-plugin-filesize";
@@ -17,7 +17,7 @@ export default {
   input: {
     "cli.js": 'src/cli.ts',
   },
-  external: [/node_modules/],
+  external: [/node_modules/, 'inquirer'],
   treeshake: true,
   output: {
     dir: 'dist',
@@ -52,6 +52,6 @@ export default {
       use: ["less"],
     }),
     filesize(),
-    terser(),
+    // terser(),
   ],
 };

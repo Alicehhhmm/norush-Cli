@@ -24,6 +24,8 @@ export const hasElementInArray = (list: Array<String>, element: string) => {
  */
 export const writeInPkg = async (devArr: string[], key: string = 'devDependencies') => {
   let pkg = await getPackageJson()
+  if (!pkg.devDependencies) pkg.devDependencies = {};
+
   devArr.forEach((item: string) => {
     // 为了防止安装包里面的名字有@
     const index = item.lastIndexOf('@')
