@@ -1,7 +1,11 @@
 # norush-Cli
 
-这是个定制化配置的脚手架 CLI 工具库。
-
+<p align="center">
+<h6>这是个定制化配置的脚手架 CLI 工具库</h6>
+<br/>
+<a href="https://www.npmjs.com/package/norush-cli?activeTab=readme"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
+</p>
+<br/>
 # 📦install
 
 ```js
