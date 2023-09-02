@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import { getPackageJson, writeInPkg, getPath } from '../utils';
-import { eslintrcFn, prettierrcInit } from '../templates/template-init';
+import { eslintrcFn, prettierrcInit } from '../../templates/template-init';
 import {
   ESL_IGNORE,
   BASE_DEV_DEPS,

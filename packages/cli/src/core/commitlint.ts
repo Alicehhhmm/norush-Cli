@@ -8,7 +8,7 @@ import {
   writeInPkg,
   getPackageJson
 } from '../utils';
-import { commitLintConfig } from '../templates/template-init';
+import { commitLintConfig } from '../../templates/template-init';
 import { BASE_DEV_DEPS_commitlint, commitMsg, preCommit } from "../a.module.params";
 
 

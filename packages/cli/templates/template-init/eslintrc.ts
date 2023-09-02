@@ -5,7 +5,7 @@
  * @param {string} vue3
  * @param {string} React
  */
-import { getEnv } from '../../utils';
+import { getEnv } from '../../src/utils';
 
 const baseEslint = `
 'prettier/prettier': 'error',

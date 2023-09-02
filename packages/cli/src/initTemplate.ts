@@ -61,7 +61,7 @@ async function initTemplate() {
 
   const templateDir = path.resolve(
     fileURLToPath(import.meta.url),
-    '../',
+    '../..',
     `templates`,
   )
   const templateDirFile = path.join(templateDir, template)
