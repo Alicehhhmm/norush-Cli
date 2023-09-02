@@ -18,6 +18,7 @@ export default {
     "cli.js": 'src/cli.ts',
   },
   external: [/node_modules/],
+  treeshake: true,
   output: {
     dir: 'dist',
     format: "esm",

@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "norush-cli",
   "version": "1.0.0",
   "description": "This is a custom CLI",
   "author": "",
@@ -15,6 +15,11 @@
     "update-version": "esno src/core/version.ts ",
     "build:config": "pnpm rimraf dist && rollup --c ./scripts/build.config.ts --configPlugin typescript"
   },
+  "files": [
+    "bin/index.js",
+    "src/templates/template-*",
+    "dist"
+  ],
   "engines": {
     "node": ">=16.0.0"
   },
