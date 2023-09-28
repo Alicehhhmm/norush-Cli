@@ -20,7 +20,7 @@
     "isolatedModules": true, // 将每个文件作为单独的模块进行编译
     "esModuleInterop": false, //是否启用对默认导入和命名空间导入的交互性支持
     "resolveJsonModule": true, //是否允许导入 JSON 模块
-    "useDefineForClassFields": true, //是否在类字段上使用定义初始化语法
+    "useDefineForClassFields": true, //是否在类字段上使用定义初始化语法  
     "allowSyntheticDefaultImports": true, //是否允许从没有默认导出的模块中默认导入
     "forceConsistentCasingInFileNames": true //是否强制保持文件名的一致性
   },

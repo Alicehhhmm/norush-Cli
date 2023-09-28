@@ -1,6 +1,6 @@
 {
   "name": "norush-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is a custom CLI",
   "author": "",
   "license": "ISC",
@@ -41,7 +41,14 @@
     "@types/node": "^18.11.0",
     "cac": "^6.7.14",
     "figlet": "^1.6.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "chalk": "^5.3.0",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.2.11",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.2",
