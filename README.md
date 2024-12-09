@@ -1,4 +1,4 @@
-# norush-Cli
+# norush-cli
 
 <p align="center">
 <span>这是个定制化配置的脚手架 CLI 工具库</span>

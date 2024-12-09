@@ -1,61 +1,61 @@
 {
-  "name": "norush-cli",
-  "version": "1.0.4",
-  "description": "This is a custom CLI",
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "main": "./src/cli.ts",
-  "bin": {
-    "norush": "./bin/index.js"
-  },
-  "scripts": {
-    "norush": "node dist/cli.js",
-    "norush:dev": "esno src/cli.ts",
-    "update-version": "esno src/core/version.ts ",
-    "build:config": "pnpm rimraf dist && rollup --c ./scripts/build.config.ts --configPlugin typescript"
-  },
-  "files": [
-    "bin/index.js",
-    "templates/template-*",
-    "README.md",
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alicehhhmm/norush-Cli",
-    "directory": "packages/cli"
-  },
-  "bugs": {
-    "url": "https://github.com/Ailcehhhmm/norush-cli/issues"
-  },
-  "homepage": "https://github.com/Alicehhhmm/norush-Cli/blob/main/packages/cli/README.md",
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "keywords": [
-    "rollup",
-    "cli"
-  ],
-  "dependencies": {
-    "@types/node": "^18.11.0",
-    "cac": "^6.7.14",
-    "figlet": "^1.6.0",
-    "ts-node": "^10.9.1",
-    "chalk": "^5.3.0",
-    "cross-spawn": "^7.0.3",
-    "fs-extra": "^11.1.1",
-    "inquirer": "^9.2.11",
-    "kolorist": "^1.8.0",
-    "minimist": "^1.2.8",
-    "prompts": "^2.4.2"
-  },
-  "devDependencies": {
-    "@types/minimist": "^1.2.2",
-    "@types/prompts": "^2.4.4",
-    "kolorist": "^1.8.0",
-    "prompts": "^2.4.2",
-    "eslint": "^7.25.0",
-    "prettier": "^2.7.1"
-  }
+    "name": "norush-cli",
+    "version": "1.0.4",
+    "description": "This is a custom CLI",
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "main": "./src/cli.ts",
+    "bin": {
+        "norush": "./bin/index.js"
+    },
+    "scripts": {
+        "norush": "node dist/cli.js",
+        "norush:dev": "esno src/cli.ts",
+        "update-version": "esno src/core/version.ts ",
+        "build:config": "pnpm rimraf dist && rollup --c ./scripts/build.config.ts --configPlugin typescript"
+    },
+    "files": [
+        "bin/index.js",
+        "templates/template-*",
+        "README.md",
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Alicehhhmm/norush-Cli",
+        "directory": "packages/cli"
+    },
+    "bugs": {
+        "url": "https://github.com/Ailcehhhmm/norush-cli/issues"
+    },
+    "homepage": "https://github.com/Alicehhhmm/norush-Cli/blob/main/packages/cli/README.md",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "keywords": [
+        "rollup",
+        "cli"
+    ],
+    "dependencies": {
+        "@types/node": "^18.11.0",
+        "cac": "^6.7.14",
+        "figlet": "^1.6.0",
+        "ts-node": "^10.9.1",
+        "chalk": "^5.3.0",
+        "cross-spawn": "^7.0.3",
+        "fs-extra": "^11.1.1",
+        "inquirer": "^9.2.11",
+        "kolorist": "^1.8.0",
+        "minimist": "^1.2.8",
+        "prompts": "^2.4.2"
+    },
+    "devDependencies": {
+        "@types/minimist": "^1.2.2",
+        "@types/prompts": "^2.4.4",
+        "kolorist": "^1.8.0",
+        "prompts": "^2.4.2",
+        "eslint": "^7.25.0",
+        "prettier": "^2.7.1"
+    }
 }
